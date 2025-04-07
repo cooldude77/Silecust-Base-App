@@ -1,0 +1,6 @@
+parameters:
+  silecust.sign_up.email.email_from_address: from@fromAddress
+  silecust.sign_up.email.template_location: security/external/user/sign_up/email/sign_up_email.html.twig
+  silecust.sign_up.email.headline: A Headline
+  silecust.default_country: IN
+  file_storage_path: '/data/dev'
