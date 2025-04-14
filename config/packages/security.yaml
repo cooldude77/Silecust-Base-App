@@ -43,6 +43,8 @@ security:
     - { path: ^/admin, roles: ROLE_EMPLOYEE }
     - { path: ^/cart, roles: ROLE_CUSTOMER }
     - { path: ^/checkout, roles: ROLE_CUSTOMER }
+    - { path: ^/my, roles: ROLE_CUSTOMER }
+
 
 when@test:
   security:
