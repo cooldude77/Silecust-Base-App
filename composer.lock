@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f0641d6ab23b6ee37c0060ed8a15493d",
+    "content-hash": "8bff4ce906f0318be01fbdcdd1f05a03",
     "packages": [
         {
             "name": "composer/semver",
@@ -1511,16 +1511,16 @@
         },
         {
             "name": "knplabs/knp-paginator-bundle",
-            "version": "v6.7.0",
+            "version": "v6.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpPaginatorBundle.git",
-                "reference": "a346431b9f0cddac8cd03d63e70911b6bf70ffde"
+                "reference": "c3ba635cc61c8bc5de4656223d8664c4045e9fdc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpPaginatorBundle/zipball/a346431b9f0cddac8cd03d63e70911b6bf70ffde",
-                "reference": "a346431b9f0cddac8cd03d63e70911b6bf70ffde",
+                "url": "https://api.github.com/repos/KnpLabs/KnpPaginatorBundle/zipball/c3ba635cc61c8bc5de4656223d8664c4045e9fdc",
+                "reference": "c3ba635cc61c8bc5de4656223d8664c4045e9fdc",
                 "shasum": ""
             },
             "require": {
@@ -1579,9 +1579,9 @@
             ],
             "support": {
                 "issues": "https://github.com/KnpLabs/KnpPaginatorBundle/issues",
-                "source": "https://github.com/KnpLabs/KnpPaginatorBundle/tree/v6.7.0"
+                "source": "https://github.com/KnpLabs/KnpPaginatorBundle/tree/v6.8.0"
             },
-            "time": "2025-03-02T16:36:05+00:00"
+            "time": "2025-04-11T07:08:09+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -1741,16 +1741,16 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "5.6.1",
+            "version": "5.6.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "e5e784149a09bd69d9a5e3b01c5cbd2e2bd653d8"
+                "reference": "92dde6a5919e34835c506ac8c523ef095a95ed62"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/e5e784149a09bd69d9a5e3b01c5cbd2e2bd653d8",
-                "reference": "e5e784149a09bd69d9a5e3b01c5cbd2e2bd653d8",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/92dde6a5919e34835c506ac8c523ef095a95ed62",
+                "reference": "92dde6a5919e34835c506ac8c523ef095a95ed62",
                 "shasum": ""
             },
             "require": {
@@ -1799,9 +1799,9 @@
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
             "support": {
                 "issues": "https://github.com/phpDocumentor/ReflectionDocBlock/issues",
-                "source": "https://github.com/phpDocumentor/ReflectionDocBlock/tree/5.6.1"
+                "source": "https://github.com/phpDocumentor/ReflectionDocBlock/tree/5.6.2"
             },
-            "time": "2024-12-07T09:39:29+00:00"
+            "time": "2025-04-13T19:20:35+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",
@@ -2220,12 +2220,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/cooldude77/silecust-framework.git",
-                "reference": "97433baec66f998ddfdf8ed89358aae99384bbcb"
+                "reference": "5e629fbfc12c2098fb3aca8b82e5664bbdad5953"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cooldude77/silecust-framework/zipball/97433baec66f998ddfdf8ed89358aae99384bbcb",
-                "reference": "97433baec66f998ddfdf8ed89358aae99384bbcb",
+                "url": "https://api.github.com/repos/cooldude77/silecust-framework/zipball/5e629fbfc12c2098fb3aca8b82e5664bbdad5953",
+                "reference": "5e629fbfc12c2098fb3aca8b82e5664bbdad5953",
                 "shasum": ""
             },
             "require": {
@@ -2249,22 +2249,22 @@
             "description": "Silecust framework for common classes",
             "support": {
                 "issues": "https://github.com/cooldude77/silecust-framework/issues",
-                "source": "https://github.com/cooldude77/silecust-framework/tree/master"
+                "source": "https://github.com/cooldude77/silecust-framework/tree/v0.0.0-alpha.4"
             },
-            "time": "2025-04-04T06:24:00+00:00"
+            "time": "2025-04-25T05:08:36+00:00"
         },
         {
             "name": "silecust/web-shop",
-            "version": "dev-master",
+            "version": "v0.0.0-alpha.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cooldude77/SilECust-WebShop.git",
-                "reference": "63269c8e5e2133750aa862bd534e4fb2fcd6790c"
+                "reference": "56a3798047e82b212204705cbbcd709019c5ab31"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cooldude77/SilECust-WebShop/zipball/63269c8e5e2133750aa862bd534e4fb2fcd6790c",
-                "reference": "63269c8e5e2133750aa862bd534e4fb2fcd6790c",
+                "url": "https://api.github.com/repos/cooldude77/SilECust-WebShop/zipball/56a3798047e82b212204705cbbcd709019c5ab31",
+                "reference": "56a3798047e82b212204705cbbcd709019c5ab31",
                 "shasum": ""
             },
             "require": {
@@ -2303,7 +2303,6 @@
                 "zenstruck/foundry": "^1.37",
                 "zenstruck/mailer-test": "^1.4"
             },
-            "default-branch": true,
             "type": "project",
             "autoload": {
                 "psr-4": {
@@ -2317,9 +2316,9 @@
             "description": "Web Shop that helps you to set up online quickly",
             "support": {
                 "issues": "https://github.com/cooldude77/SilECust-WebShop/issues",
-                "source": "https://github.com/cooldude77/SilECust-WebShop/tree/v0.0.0-alpha.2"
+                "source": "https://github.com/cooldude77/SilECust-WebShop/tree/v0.0.0-alpha.4"
             },
-            "time": "2025-04-07T05:00:31+00:00"
+            "time": "2025-04-24T10:38:43+00:00"
         },
         {
             "name": "symfony/asset",
@@ -10975,9 +10974,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "silecust/web-shop": 20
-    },
+    "stability-flags": {},
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
