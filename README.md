@@ -38,6 +38,14 @@ php bin/console doctrine:migrations:migrate
 php bin/console silecust:user:super:create
 
 php bin/console importmap:require tom-select/dist/css/tom-select.default.css
+
+php bin/console importmap:require bootstrap
+ # https://github.com/symfony/symfony/discussions/52583
+php bin/console importmap:require bootstrap-icons/font/bootstrap-icons.min.css
+
+# This is important
+php bin/console asset-map:compile
+
 ```
 
 - #### (Optional) Run test cases (using PHPUNIt or PHPStorm)
