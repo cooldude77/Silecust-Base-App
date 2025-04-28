@@ -56,4 +56,7 @@ return [
         'version' => '1.11.3',
         'type' => 'css',
     ],
+    'jquery' => [
+        'version' => '3.7.1',
+    ],
 ];

@@ -2,6 +2,7 @@ import './bootstrap.js';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.min.css';
+import 'jquery';
 /*
  * Welcome to your app's main JavaScript file!
  *
