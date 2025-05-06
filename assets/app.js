@@ -3,6 +3,11 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.min.css';
 import 'jquery';
+
+import $ from 'jquery';
+window.$ = window.jQuery = $;
+// A $( document ).ready() block.
+
 /*
  * Welcome to your app's main JavaScript file!
  *
@@ -11,4 +16,4 @@ import 'jquery';
  */
 import './styles/app.css';
 
-console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
+
