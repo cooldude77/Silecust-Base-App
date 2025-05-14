@@ -3,7 +3,7 @@
 namespace App\Tests\Service\Product\Category\File;
 
 use Silecust\WebShop\Service\MasterData\Category\Image\Provider\CategoryDirectoryImagePathProvider;
-use App\Tests\Fixtures\ProductFixture;
+use Silecust\WebShop\Service\Testing\Fixtures\ProductFixture;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use function PHPUnit\Framework\assertEquals;
 

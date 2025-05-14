@@ -2,17 +2,20 @@
 
 namespace App\Tests\Controller\Admin\Customer\Framework;
 
-use App\Tests\Utility\AuthenticateTestEmployee;
-use App\Tests\Fixtures\CustomerFixture;
-use App\Tests\Fixtures\EmployeeFixture;
-use App\Tests\Fixtures\SuperAdminFixture;
+use Silecust\WebShop\Factory\CustomerFactory;
+use Silecust\WebShop\Service\Testing\Fixtures\CustomerFixture;
+use Silecust\WebShop\Service\Testing\Fixtures\EmployeeFixture;
+use Silecust\WebShop\Service\Testing\Fixtures\SuperAdminFixture;
+use Silecust\WebShop\Service\Testing\Utility\AuthenticateTestEmployee;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser as SymfonyBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Zenstruck\Browser;
 use Zenstruck\Browser\Test\HasBrowser;
+use Zenstruck\Foundry\Test\Factories;
 
 class MainControllerTest extends WebTestCase
 {
-    use HasBrowser, AuthenticateTestEmployee, EmployeeFixture, CustomerFixture, SuperAdminFixture;
+    use HasBrowser, AuthenticateTestEmployee, EmployeeFixture, CustomerFixture, SuperAdminFixture, Factories;
 
 
     protected function setUp(): void
@@ -85,6 +88,40 @@ class MainControllerTest extends WebTestCase
             ->assertNotAuthenticated()
             ->visit('/my/orders/items/1/display')
             ->assertNotAuthenticated();
+
+    }
+
+    public function testEditPersonalData()
+    {
+        $this->createCustomerFixtures();
+
+
+        $uri = "/my/personal-info";
+
+        $this->browser()->visit($uri)
+            ->assertNotAuthenticated()
+            ->use(callback: function (Browser $browser) {
+                $browser->client()->loginUser($this->userForCustomer->object());
+            })
+            ->interceptRedirects()
+            ->visit($uri)
+            ->fillField(
+                'customer_edit_form[firstName]', 'New First Name'
+            )->fillField(
+                'customer_edit_form[middleName]', 'New Middle Name'
+            )
+            ->fillField(
+                'customer_edit_form[lastName]', 'New Last Name'
+            )
+            ->fillField('customer_edit_form[email]', 'f@g.com')
+            ->fillField('customer_edit_form[phoneNumber]', '+9188888888')
+            ->click('Save')
+            ->assertRedirectedTo("/my/personal-info");
+
+        $created = CustomerFactory::find(array('firstName' => "New First Name"));
+
+        $this->assertEquals("New First Name", $created->getFirstName());
+
 
     }
 }

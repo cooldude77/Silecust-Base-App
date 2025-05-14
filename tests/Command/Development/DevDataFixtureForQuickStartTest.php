@@ -2,7 +2,7 @@
 
 namespace App\Tests\Command\Development;
 
-use App\Tests\Fixtures\CustomerFixture;
+use Silecust\WebShop\Service\Testing\Fixtures\CustomerFixture;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use Zenstruck\Console\Test\InteractsWithConsole;
 

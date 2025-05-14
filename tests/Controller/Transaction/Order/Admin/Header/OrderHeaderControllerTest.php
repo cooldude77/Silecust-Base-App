@@ -2,14 +2,14 @@
 
 namespace App\Tests\Controller\Transaction\Order\Admin\Header;
 
-use App\Tests\Fixtures\CurrencyFixture;
-use App\Tests\Fixtures\CustomerFixture;
-use App\Tests\Fixtures\EmployeeFixture;
-use App\Tests\Fixtures\LocationFixture;
-use App\Tests\Fixtures\OrderFixture;
-use App\Tests\Fixtures\OrderItemFixture;
-use App\Tests\Fixtures\PriceFixture;
-use App\Tests\Fixtures\ProductFixture;
+use Silecust\WebShop\Service\Testing\Fixtures\CurrencyFixture;
+use Silecust\WebShop\Service\Testing\Fixtures\CustomerFixture;
+use Silecust\WebShop\Service\Testing\Fixtures\EmployeeFixture;
+use Silecust\WebShop\Service\Testing\Fixtures\LocationFixture;
+use Silecust\WebShop\Service\Testing\Fixtures\OrderFixture;
+use Silecust\WebShop\Service\Testing\Fixtures\OrderItemFixture;
+use Silecust\WebShop\Service\Testing\Fixtures\PriceFixture;
+use Silecust\WebShop\Service\Testing\Fixtures\ProductFixture;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Zenstruck\Browser;
 use Zenstruck\Browser\Test\HasBrowser;

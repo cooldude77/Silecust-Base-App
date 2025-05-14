@@ -3,17 +3,17 @@
 
 namespace App\Tests\Controller\Module\WebShop\External\Cart;
 
-use App\Tests\Fixtures\CartFixture;
-use App\Tests\Fixtures\CurrencyFixture;
-use App\Tests\Fixtures\CustomerFixture;
-use App\Tests\Fixtures\LocationFixture;
-use App\Tests\Fixtures\PriceFixture;
-use App\Tests\Fixtures\ProductFixture;
-use App\Tests\Fixtures\SessionFactoryFixture;
-use App\Tests\Utility\FindByCriteria;
 use Silecust\WebShop\Entity\OrderHeader;
 use Silecust\WebShop\Entity\OrderItem;
 use Silecust\WebShop\Service\Module\WebShop\External\Cart\Session\CartSessionProductService;
+use Silecust\WebShop\Service\Testing\Fixtures\CartFixture;
+use Silecust\WebShop\Service\Testing\Fixtures\CurrencyFixture;
+use Silecust\WebShop\Service\Testing\Fixtures\CustomerFixture;
+use Silecust\WebShop\Service\Testing\Fixtures\LocationFixture;
+use Silecust\WebShop\Service\Testing\Fixtures\PriceFixture;
+use Silecust\WebShop\Service\Testing\Fixtures\ProductFixture;
+use Silecust\WebShop\Service\Testing\Fixtures\SessionFactoryFixture;
+use Silecust\WebShop\Service\Testing\Utility\FindByCriteria;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Zenstruck\Browser;
@@ -318,19 +318,19 @@ class CartControllerTest extends WebTestCase
         $uriAddProductB = "/cart/product/" . $this->productB->getId() . '/add';
 
         $browser = $this->browser()
+            ->visit('/') // just to start the session
             ->use(function (Browser $browser) {
                 // log in User
                 $browser->client()->loginUser($this->userForCustomer->object());
 
             })
-            // make a visit just to set some session variables
-            ->visit('/')
             ->use(function (KernelBrowser $browser) {
                 $this->createSession($browser);
                 $this->createSessionKey($this->session);
                 $this->addProductToCart($this->session, $this->productA->object(), 10);
-            })
-            ->visit($cartUri)
+            });
+
+        $browser->visit($cartUri)
             ->interceptRedirects()
             ->click('Checkout')
             ->assertRedirectedTo('/checkout', 1);
@@ -349,13 +349,13 @@ class CartControllerTest extends WebTestCase
         $uri = "/cart/product/" . $this->productA->getId() . '/add';
 
 
-        $browser = $this->browser()
+        $browser = $this
+            ->browser()
+            ->visit('/') // just to start the session
             ->use(function (Browser $browser) {
                 // log in User
                 $browser->client()->loginUser($this->userForCustomer->object());
             })
-            // make a visit just to set some session variables
-            ->visit('/')
             ->use(function (KernelBrowser $browser) {
                 $this->createSession($browser);
                 $this->createSessionKey($this->session);

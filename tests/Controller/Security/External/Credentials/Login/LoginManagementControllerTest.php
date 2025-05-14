@@ -2,8 +2,8 @@
 
 namespace App\Tests\Controller\Security\External\Credentials\Login;
 
-use App\Tests\Fixtures\CustomerFixture;
-use App\Tests\Fixtures\EmployeeFixture;
+use Silecust\WebShop\Service\Testing\Fixtures\CustomerFixture;
+use Silecust\WebShop\Service\Testing\Fixtures\EmployeeFixture;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Zenstruck\Browser;
 use Zenstruck\Browser\Test\HasBrowser;

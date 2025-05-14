@@ -2,17 +2,17 @@
 
 namespace App\Tests\Controller\Module\WebShop\External\Address;
 
-use App\Tests\Fixtures\CustomerFixture;
-use App\Tests\Fixtures\LocationFixture;
-use App\Tests\Fixtures\OrderFixture;
-use App\Tests\Fixtures\SessionFactoryFixture;
-use App\Tests\Utility\FindByCriteria;
-use App\Tests\Utility\SelectElement;
 use Silecust\WebShop\Entity\CustomerAddress;
 use Silecust\WebShop\Entity\OrderAddress;
 use Silecust\WebShop\Factory\CustomerAddressFactory;
 use Silecust\WebShop\Service\Component\Routing\RoutingConstants;
 use Silecust\WebShop\Service\Module\WebShop\External\Address\CheckOutAddressSession;
+use Silecust\WebShop\Service\Testing\Fixtures\CustomerFixture;
+use Silecust\WebShop\Service\Testing\Fixtures\LocationFixture;
+use Silecust\WebShop\Service\Testing\Fixtures\OrderFixture;
+use Silecust\WebShop\Service\Testing\Fixtures\SessionFactoryFixture;
+use Silecust\WebShop\Service\Testing\Utility\FindByCriteria;
+use Silecust\WebShop\Service\Testing\Utility\SelectElement;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Zenstruck\Browser;
@@ -80,7 +80,7 @@ class AddressControllerTest extends WebTestCase
             )->use(callback: function (KernelBrowser $browser) {
                 $this->createSession($browser);
 
-                $this->session->set(
+                $this->saveToSession(
                     CheckOutAddressSession::SHIPPING_ADDRESS_ID, $this->shippingAddress->getId()
                 );
 
@@ -90,7 +90,7 @@ class AddressControllerTest extends WebTestCase
                 1
             )->use(callback: function (KernelBrowser $browser) {
 
-                $this->session->set(
+                $this->saveToSession(
                     CheckOutAddressSession::BILLING_ADDRESS_ID, $this->billingAddress->getId()
                 );
 
@@ -107,6 +107,7 @@ class AddressControllerTest extends WebTestCase
         $this->browser()
             ->use(callback: function (Browser $browser) {
                 $browser->client()->loginUser($this->userForCustomer->object());
+
                 $this->createOpenOrderFixtures($this->customer);
 
             })

@@ -1,0 +1,37 @@
+doctrine:
+    dbal:
+        connections:
+            default:
+                url: '%database.url%'
+                use_savepoints: true
+
+    orm:
+        auto_generate_proxy_classes: true
+        enable_lazy_ghost_objects: true
+        report_fields_where_declared: true
+        validate_xml_mapping: true
+        naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
+        auto_mapping: true
+        mappings:
+            Silecust\WebShop:
+                type: attribute
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/Entity'
+                prefix: 'Silecust\WebShop\Entity'
+                alias: Silecust\WebShop
+
+
+
+doctrine_migrations:
+    migrations_paths:
+        # namespace is arbitrary but should be different from Silecust\WebShop\Migrations
+        # as migrations classes should NOT be autoloaded
+        'Silecust\WebShop\migrations': '%kernel.project_dir%/src/migrations'
+    enable_profiler: false
+
+dama_doctrine_test:
+    enable_static_connection: true
+    enable_static_meta_data_cache: true
+    enable_static_query_cache: true
+    connection_keys:
+        default: custom_key

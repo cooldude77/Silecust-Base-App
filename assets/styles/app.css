@@ -1,3 +1,14 @@
 h2 {
     display: inline-block;
 }
+
+#silecust-admin-search-box .form-control {
+    display: inline-block;
+}
+#silecust-admin-search-form{
+    width: 50%;
+}
+a {
+    text-decoration: none;
+}
+ 

@@ -2,11 +2,11 @@
 
 namespace App\Tests\Controller\Module\WebShop\External\CheckOut;
 
-use App\Tests\Fixtures\CartFixture;
-use App\Tests\Fixtures\CustomerFixture;
-use App\Tests\Fixtures\LocationFixture;
-use App\Tests\Fixtures\ProductFixture;
-use App\Tests\Fixtures\SessionFactoryFixture;
+use Silecust\WebShop\Service\Testing\Fixtures\CartFixture;
+use Silecust\WebShop\Service\Testing\Fixtures\CustomerFixture;
+use Silecust\WebShop\Service\Testing\Fixtures\LocationFixture;
+use Silecust\WebShop\Service\Testing\Fixtures\ProductFixture;
+use Silecust\WebShop\Service\Testing\Fixtures\SessionFactoryFixture;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Zenstruck\Browser;
@@ -39,18 +39,12 @@ class CheckOutControllerTest extends WebTestCase
         $this
             ->browser()
             ->visit($uriCheckout)
-            ->assertNotAuthenticated();
-
-        // user is logged in
-        // cart is empty
-        $this
-            ->browser()
+            ->assertNotAuthenticated()
+            // user is logged in
+            // cart is empty
             ->use(function (Browser $browser) {
                 $browser->client()->loginUser($this->userForCustomer->object());
             })
-
-            // make a visit just to set some session variables
-            ->visit('/')
             ->use(function (KernelBrowser $browser) {
                 $this->createSession($browser);
                 $this->createSessionKey($this->session);

@@ -2,17 +2,16 @@
 
 namespace App\Tests\Controller\Module\WebShop\External\Order;
 
-use App\Tests\Fixtures\CartFixture;
-use App\Tests\Fixtures\CurrencyFixture;
-use App\Tests\Fixtures\CustomerFixture;
-use App\Tests\Fixtures\LocationFixture;
-use App\Tests\Fixtures\OrderFixture;
-use App\Tests\Fixtures\OrderItemFixture;
-use App\Tests\Fixtures\PriceFixture;
-use App\Tests\Fixtures\ProductFixture;
-use App\Tests\Fixtures\SessionFactoryFixture;
-use App\Tests\Utility\FindByCriteria;
-use PHPUnit\Framework\TestCase;
+use Silecust\WebShop\Service\Testing\Fixtures\CartFixture;
+use Silecust\WebShop\Service\Testing\Fixtures\CurrencyFixture;
+use Silecust\WebShop\Service\Testing\Fixtures\CustomerFixture;
+use Silecust\WebShop\Service\Testing\Fixtures\LocationFixture;
+use Silecust\WebShop\Service\Testing\Fixtures\OrderFixture;
+use Silecust\WebShop\Service\Testing\Fixtures\OrderItemFixture;
+use Silecust\WebShop\Service\Testing\Fixtures\PriceFixture;
+use Silecust\WebShop\Service\Testing\Fixtures\ProductFixture;
+use Silecust\WebShop\Service\Testing\Fixtures\SessionFactoryFixture;
+use Silecust\WebShop\Service\Testing\Utility\FindByCriteria;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Zenstruck\Browser;
 use Zenstruck\Browser\Test\HasBrowser;

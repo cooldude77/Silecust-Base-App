@@ -4,9 +4,9 @@ namespace App\Tests\Controller\MasterData\Employee;
 
 use Silecust\WebShop\Factory\EmployeeFactory;
 use Silecust\WebShop\Factory\UserFactory;
-use App\Tests\Fixtures\EmployeeFixture;
-use App\Tests\Fixtures\SuperAdminFixture;
-use App\Tests\Utility\SelectElement;
+use Silecust\WebShop\Service\Testing\Fixtures\EmployeeFixture;
+use Silecust\WebShop\Service\Testing\Fixtures\SuperAdminFixture;
+use Silecust\WebShop\Service\Testing\Utility\SelectElement;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Zenstruck\Browser;
 use Zenstruck\Browser\Test\HasBrowser;

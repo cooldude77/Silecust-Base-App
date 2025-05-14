@@ -1,0 +1,56 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: true
+  Silecust\WebShop\:
+    resource: '../../src/'
+    exclude:
+      - '../../src/DependencyInjection/'
+      - '../../src/Entity/'
+      - '../../src/Kernel.php'
+      - '../../src/Event/'
+      - '../../src/Exception/'
+
+  Silecust\WebShop\Service\Admin\SideBar\Action\PanelActionListMap:
+    autoconfigure: false
+    autowire: false
+  Silecust\WebShop\Service\Admin\SideBar\List\PanelSideBarListMap:
+    autoconfigure: false
+    autowire: false
+  Silecust\WebShop\Service\Module\WebShop\External\Cart\Session\Object\CartSessionObject:
+    autoconfigure: false
+    autowire: false
+
+  Silecust\WebShop\Service\Transaction\Order\PriceObject:
+    autoconfigure: false
+    autowire: false
+  #  Silecust\WebShop\Service\MasterData\Product\ProductSearch:
+  #   alias: product.search
+
+  session.storage.factory.mock_file:
+    class: Silecust\WebShop\Tests\Utility\MyOwnMockFileSessionStorageFactory
+  session.factory:
+    class: Silecust\WebShop\Tests\Utility\MySessionFactory
+    arguments:
+      $requestStack: '@request_stack'
+      $storageFactory: '@session.storage.factory'
+      $usageReporter: [ '@session_listener','onSessionUsage' ]
+  product_search_service:
+    class: Silecust\WebShop\Service\MasterData\Product\ProductSearch
+  product.search:
+    alias: product_search_service
+  Silecust\WebShop\EventListener\ExceptionListener:
+    tags:
+      - { name: kernel.event_listener, event: kernel.exception }
+  twig_try_catch_extension:
+    class: 'Gglnx\TwigTryCatch\Extension\TryCatchExtension'
+    tags:
+      - { name: twig.extension }
+
+symfonycasts_reset_password:
+  request_password_repository: Silecust\WebShop\Repository\ResetPasswordRequestRepository
+  lifetime: 3600
+  throttle_limit: 3600
+  enable_garbage_collection: true
+

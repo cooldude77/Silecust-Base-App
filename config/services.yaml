@@ -9,9 +9,6 @@ parameters:
     silecust.sign_up.email.headline: A Headline
     silecust.default_country: IN
     file_storage_path: '/data/dev'
-when@test:
-    parameters:
-        file_storage_path: '/data/test'
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -37,3 +34,21 @@ services:
         class: 'Gglnx\TwigTryCatch\Extension\TryCatchExtension'
         tags:
             - { name: twig.extension }
+when@test:
+    parameters:
+        file_storage_path: '/data/test'
+
+# The reason we need to declare session classes for mocking here:
+# because if not present the session is created new in a service that uses requeststack
+# as an argument
+# even if supplied from the bundle
+    # for ex: CartSessionProductService
+    services:
+        session.storage.factory.mock_file:
+            class: Silecust\WebShop\Service\Testing\Utility\MyOwnMockFileSessionStorageFactory
+        session.factory:
+            class: Silecust\WebShop\Service\Testing\Utility\MySessionFactory
+            arguments:
+                $requestStack: '@request_stack'
+                $storageFactory: '@session.storage.factory.mock_file'
+                $usageReporter: [ '@session_listener','onSessionUsage' ]

@@ -3,9 +3,9 @@
 namespace App\Tests\Controller\Location;
 
 use Silecust\WebShop\Factory\CountryFactory;
-use App\Tests\Fixtures\EmployeeFixture;
-use App\Tests\Fixtures\LocationFixture;
-use App\Tests\Utility\SelectElement;
+use Silecust\WebShop\Service\Testing\Fixtures\EmployeeFixture;
+use Silecust\WebShop\Service\Testing\Fixtures\LocationFixture;
+use Silecust\WebShop\Service\Testing\Utility\SelectElement;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Zenstruck\Browser;
 use Zenstruck\Browser\Test\HasBrowser;

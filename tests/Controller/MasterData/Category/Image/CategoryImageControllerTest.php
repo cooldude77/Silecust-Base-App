@@ -4,8 +4,8 @@ namespace App\Tests\Controller\MasterData\Category\Image;
 
 use Silecust\WebShop\Factory\CategoryFactory;
 use Silecust\WebShop\Service\MasterData\Category\Image\Provider\CategoryDirectoryImagePathProvider;
-use App\Tests\Fixtures\EmployeeFixture;
-use App\Tests\Utility\SelectElement;
+use Silecust\WebShop\Service\Testing\Fixtures\EmployeeFixture;
+use Silecust\WebShop\Service\Testing\Utility\SelectElement;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\DomCrawler\Crawler;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
