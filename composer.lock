@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "652a76168dfc6abd502f2c140533361b",
+    "content-hash": "fa94e83060d87e76f5c6e6da351cca0f",
     "packages": [
         {
             "name": "composer/semver",
@@ -2254,17 +2254,11 @@
         },
         {
             "name": "silecust/web-shop",
-            "version": "v0.0.0-alpha.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/cooldude77/SilECust-WebShop.git",
-                "reference": "0ef34ada5e501f43a0d416e4a935500b8d8cc3b5"
-            },
+            "version": "dev-br_set_title_of_pages",
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/cooldude77/SilECust-WebShop/zipball/0ef34ada5e501f43a0d416e4a935500b8d8cc3b5",
-                "reference": "0ef34ada5e501f43a0d416e4a935500b8d8cc3b5",
-                "shasum": ""
+                "type": "path",
+                "url": "/var/www/html/project/productized/bundles/silecust",
+                "reference": "0ef34ada5e501f43a0d416e4a935500b8d8cc3b5"
             },
             "require": {
                 "doctrine/dbal": "^3",
@@ -2308,16 +2302,19 @@
                     "Silecust\\WebShop\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Silecust\\WebShop\\Tests\\": "tests/"
+                }
+            },
             "license": [
                 "proprietary"
             ],
             "description": "Web Shop that helps you to set up online quickly",
-            "support": {
-                "issues": "https://github.com/cooldude77/SilECust-WebShop/issues",
-                "source": "https://github.com/cooldude77/SilECust-WebShop/tree/v0.0.0-alpha.5"
-            },
-            "time": "2025-05-14T04:27:44+00:00"
+            "transport-options": {
+                "symlink": true,
+                "relative": false
+            }
         },
         {
             "name": "symfony/asset",
@@ -10884,7 +10881,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {},
+    "stability-flags": {
+        "silecust/web-shop": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

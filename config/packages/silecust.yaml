@@ -1,0 +1,5 @@
+imports:
+   - {resource: ../parameters.yaml}
+silecust_web_shop:
+  site_settings:
+    main_page_title: "%silecust.main_page.title%"

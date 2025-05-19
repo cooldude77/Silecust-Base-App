@@ -72,9 +72,8 @@ class MainControllerTest extends WebTestCase
         // visit home , not logged in
         $this->browser()
             ->visit('/')
-            ->assertSuccessful();
-
-        //    ->assertSeeElement('a#logo-home-link');
+            ->assertSuccessful()
+            ->assertSeeIn('title', 'Buy from comfort of your home');
 
     }
 }
