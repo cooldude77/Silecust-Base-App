@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5205fc67a0f0099e65e468edf2a3c4b1",
+    "content-hash": "118cd61431839c01a7c433f22389a466",
     "packages": [
         {
             "name": "composer/semver",
@@ -2254,11 +2254,11 @@
         },
         {
             "name": "silecust/web-shop",
-            "version": "dev-master",
+            "version": "dev-br_modify_checkout_code",
             "dist": {
                 "type": "path",
                 "url": "/var/www/html/project/productized/bundles/silecust",
-                "reference": "4b7be1a4cbeedd10d4b2cd40a782f5c4427401af"
+                "reference": "5580f45b905c5658a4a96278cd04afc24ad8c4b1"
             },
             "require": {
                 "doctrine/dbal": "^3",
