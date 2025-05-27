@@ -13,14 +13,14 @@
     "doctrine/orm": "^3.3.3",
     "phpdocumentor/reflection-docblock": "^5.6.2",
     "phpstan/phpdoc-parser": "^2.1",
-    "silecust/web-shop": "dev-br_set_title_of_pages",
+    "silecust/web-shop": "dev-master",
     "symfony/asset": "7.2.*",
     "symfony/asset-mapper": "7.2.*",
     "symfony/console": "7.2.*",
     "symfony/doctrine-messenger": "7.2.*",
     "symfony/dotenv": "7.2.*",
     "symfony/expression-language": "7.2.*",
-    "symfony/flex": "^2.5.1",
+    "symfony/flex": "^2.7.0",
     "symfony/form": "7.2.*",
     "symfony/framework-bundle": "7.2.*",
     "symfony/http-client": "7.2.*",
@@ -35,7 +35,7 @@
     "symfony/runtime": "7.2.*",
     "symfony/security-bundle": "7.2.*",
     "symfony/serializer": "7.2.*",
-    "symfony/stimulus-bundle": "^2.24",
+    "symfony/stimulus-bundle": "^2.25.2",
     "symfony/string": "7.2.*",
     "symfony/translation": "7.2.*",
     "symfony/twig-bundle": "7.2.*",
@@ -92,7 +92,7 @@
   },
   "extra": {
     "symfony": {
-      "allow-contrib": false,
+      "allow-contrib": true,
       "require": "7.2.*"
     }
   },
