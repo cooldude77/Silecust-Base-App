@@ -31,7 +31,6 @@ class AddressControllerTest extends WebTestCase
 
     protected function setUp(): void
     {
-        $this->browser()->visit('/logout');
         $this->createCustomerFixtures();
         $this->createLocationFixtures();
 
@@ -139,9 +138,13 @@ class AddressControllerTest extends WebTestCase
             ->assertRedirectedTo('/checkout/addresses', 1)
             ->use(function (KernelBrowser $browser) {
                 $this->createSession($browser);
+
+                // check if address set it session
                 self::assertNotNull(
                     $this->session->get(CheckOutAddressSession::SHIPPING_ADDRESS_ID)
                 );
+
+                $a = CustomerAddressFactory::findBy(['customer' => $this->customer->object()]);
 
                 $address = $this->findOneBy(
                     CustomerAddress::class,
@@ -153,7 +156,11 @@ class AddressControllerTest extends WebTestCase
                 );
 
                 self::assertNotNull($orderAddress);
-
+                // check if it is shipping session
+                self::assertEquals(
+                    $this->session->get(CheckOutAddressSession::SHIPPING_ADDRESS_ID),
+                    $orderAddress->getShippingAddress()->getId()
+                );
             });
     }
 

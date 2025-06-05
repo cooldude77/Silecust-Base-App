@@ -47,8 +47,8 @@ class MainControllerTest extends WebTestCase
         $this->browser()
             ->visit('/')
             ->assertSuccessful()
-            ->assertSee("Base Price not found for product Prod name A")
-            ->assertSee("Base Price not found for product Prod name B");
+            ->assertSee('Base Price not found for product Prod name A')
+            ->assertSee('Base Price not found for product Prod name B');
 
     }
 
@@ -61,7 +61,7 @@ class MainControllerTest extends WebTestCase
                      $r = $browser->client()->getResponse();
                  })
               */
-            ->assertSee("No products are available to list at the moment");
+            ->assertSee('No products are available to list at the moment');
 
     }
 

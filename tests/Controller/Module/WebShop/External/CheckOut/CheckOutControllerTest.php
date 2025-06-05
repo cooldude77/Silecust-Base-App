@@ -2,6 +2,7 @@
 
 namespace App\Tests\Controller\Module\WebShop\External\CheckOut;
 
+
 use Silecust\WebShop\Service\Testing\Fixtures\CartFixture;
 use Silecust\WebShop\Service\Testing\Fixtures\CustomerFixture;
 use Silecust\WebShop\Service\Testing\Fixtures\LocationFixture;
