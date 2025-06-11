@@ -52,7 +52,7 @@ class OrderViewBeforePaymentControllerTest extends WebTestCase
         $this->createOpenOrderFixtures($this->customer);
         $this->createOrderItemsFixture($this->openOrderHeader, $this->productA, $this->productB);
         $this->createOrderShippingFixture($this->openOrderHeader);
-
+        
         $uri = '/checkout/order/view';
 
         $this->browser()

@@ -29,9 +29,9 @@ services:
   #   alias: product.search
 
   session.storage.factory.mock_file:
-    class: Silecust\WebShop\Tests\Utility\MyOwnMockFileSessionStorageFactory
+    class: App\Tests\Utility\MyOwnMockFileSessionStorageFactory
   session.factory:
-    class: Silecust\WebShop\Tests\Utility\MySessionFactory
+    class: App\Tests\Utility\MySessionFactory
     arguments:
       $requestStack: '@request_stack'
       $storageFactory: '@session.storage.factory'

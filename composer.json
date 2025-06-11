@@ -13,14 +13,14 @@
     "doctrine/orm": "^3.3.3",
     "phpdocumentor/reflection-docblock": "^5.6.2",
     "phpstan/phpdoc-parser": "^2.1",
-    "silecust/web-shop": "dev-br_modify_checkout_code",
+    "silecust/web-shop": "dev-master",
     "symfony/asset": "7.2.*",
     "symfony/asset-mapper": "7.2.*",
     "symfony/console": "7.2.*",
     "symfony/doctrine-messenger": "7.2.*",
     "symfony/dotenv": "7.2.*",
     "symfony/expression-language": "7.2.*",
-    "symfony/flex": "^2.7.0",
+    "symfony/flex": "^2.7.1",
     "symfony/form": "7.2.*",
     "symfony/framework-bundle": "7.2.*",
     "symfony/http-client": "7.2.*",
@@ -35,7 +35,7 @@
     "symfony/runtime": "7.2.*",
     "symfony/security-bundle": "7.2.*",
     "symfony/serializer": "7.2.*",
-    "symfony/stimulus-bundle": "^2.25.2",
+    "symfony/stimulus-bundle": "^2.26.1",
     "symfony/string": "7.2.*",
     "symfony/translation": "7.2.*",
     "symfony/twig-bundle": "7.2.*",
@@ -103,21 +103,12 @@
     "symfony/css-selector": "7.2.*",
     "symfony/debug-bundle": "7.2.*",
     "symfony/maker-bundle": "^1.63.0",
-    "symfony/phpunit-bridge": "^7.2.6",
+    "symfony/phpunit-bridge": "^7.2.7",
     "symfony/stopwatch": "7.2.*",
     "symfony/web-profiler-bundle": "7.2.*",
     "zenstruck/browser": "^1.9.1",
     "zenstruck/console-test": "^1.7",
     "zenstruck/foundry": "^1.38.6",
     "zenstruck/mailer-test": "^1.4.2"
-  },
-  "repositories": [
-    {
-      "type": "path",
-      "url": "/var/www/html/project/productized/bundles/silecust",
-      "options": {
-        "symlink": true
-      }
-    }
-  ]
+  }
 }
