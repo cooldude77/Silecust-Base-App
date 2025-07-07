@@ -5,6 +5,8 @@ namespace App\Tests\Controller\Module\WebShop\External\Cart;
 
 use Silecust\WebShop\Entity\OrderHeader;
 use Silecust\WebShop\Entity\OrderItem;
+use Silecust\WebShop\Factory\OrderHeaderFactory;
+use Silecust\WebShop\Factory\OrderItemFactory;
 use Silecust\WebShop\Service\Module\WebShop\External\Cart\Session\CartSessionProductService;
 use Silecust\WebShop\Service\Testing\Fixtures\CartFixture;
 use Silecust\WebShop\Service\Testing\Fixtures\CurrencyFixture;
@@ -71,18 +73,23 @@ class CartControllerTest extends WebTestCase
 
             // Test: Visit after login
             ->visit($cartUri)
-            ->use(function (Browser $browser) {
-                $session = $browser->client()->getRequest()->getSession();
+            ->use(function (KernelBrowser $browser) {
+                $this->createSession($browser);
                 // Test : Cart got created
-                $this->assertNotNull($session->get(CartSessionProductService::CART_SESSION_KEY));
+                $this->assertNotNull($this->session->get(CartSessionProductService::CART_SESSION_KEY));
 
                 /** @var OrderHeader $order */
                 $order = $this->findOneBy(
                     OrderHeader::class, ['customer' => $this->customer->object()]
                 );
 
+                // Previously:
                 // Test : An order should only be created when item is added to the cart
-                $this->assertNull($order);
+                // $this->assertNull($order);
+
+                // Now:
+                // Test : An order is created when cart is initialized
+                $this->assertNotNull($order);
 
             })
             // Test: empty cart should not have clear cart button
@@ -99,14 +106,15 @@ class CartControllerTest extends WebTestCase
             ->assertRedirectedTo('/cart', 1)
             ->use(function (Browser $browser) {
 
+                // Now: Order is created when cart is loaded
                 // Test : An order got created
-                $order = $this->findOneBy(
-                    OrderHeader::class, ['customer' => $this->customer->object()]
-                );
-                self::assertNotNull($order);
+               // $order = $this->findOneBy(
+                 //   OrderHeader::class, ['customer' => $this->customer->object()]
+                //);
+               // self::assertNotNull($order);
 
-                $this->assertNotNull($order->getGeneratedId());
-
+               // $this->assertNotNull($order->getGeneratedId());
+                $order = $this->findOneBy(OrderHeader::class, ['customer' => $this->customer->object()]);
                 // item got created
                 $item = $this->findOneBy(OrderItem::class, ['orderHeader' => $order,
                         'product' => $this->productA->object()]
@@ -366,7 +374,16 @@ class CartControllerTest extends WebTestCase
                 'cart_add_product_single_form[quantity]', 1
             )
             ->click('button[name="addToCart"]')
-            ->assertSuccessful();
+            ->assertSuccessful()
+            ->use(function (\Zenstruck\Browser $browser) {
+
+                $orderHeader = OrderHeaderFactory::find(['customer' => $this->customer]);
+                $orderItems = OrderItemFactory::findBy(['orderHeader' => $orderHeader]);
+                // check product searlized
+                self::assertNotEmpty($orderItems[0]->getProductInJson());
+                self::assertJson($orderItems[0]->getProductInJson());
+
+            });;
 
     }
 }

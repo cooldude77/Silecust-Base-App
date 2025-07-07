@@ -11,4 +11,7 @@ h2 {
 a {
     text-decoration: none;
 }
- 
+
+legend {
+    display: none;
+}

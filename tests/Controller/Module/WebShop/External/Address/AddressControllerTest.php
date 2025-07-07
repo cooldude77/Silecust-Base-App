@@ -5,6 +5,7 @@ namespace App\Tests\Controller\Module\WebShop\External\Address;
 use Silecust\WebShop\Entity\CustomerAddress;
 use Silecust\WebShop\Entity\OrderAddress;
 use Silecust\WebShop\Factory\CustomerAddressFactory;
+use Silecust\WebShop\Factory\OrderAddressFactory;
 use Silecust\WebShop\Service\Component\Routing\RoutingConstants;
 use Silecust\WebShop\Service\Module\WebShop\External\Address\CheckOutAddressSession;
 use Silecust\WebShop\Service\Testing\Fixtures\CustomerFixture;
@@ -33,6 +34,7 @@ class AddressControllerTest extends WebTestCase
     {
         $this->createCustomerFixtures();
         $this->createLocationFixtures();
+        $this->createOpenOrderFixtures($this->customer);
 
     }
 
@@ -87,7 +89,7 @@ class AddressControllerTest extends WebTestCase
             })->interceptRedirects()->visit($uri)->assertRedirectedTo(
                 '/checkout/addresses/choose?type=billing&_redirect_upon_success_url=/checkout/addresses',
                 1
-            )->use(callback: function (KernelBrowser $browser) {
+            )->use(callback: function () {
 
                 $this->saveToSession(
                     CheckOutAddressSession::BILLING_ADDRESS_ID, $this->billingAddress->getId()
@@ -116,51 +118,48 @@ class AddressControllerTest extends WebTestCase
                 $this->addOption($browser, 'select', $this->postalCode->getId());
             })
             ->fillField(
-                'address_create_and_choose_form[address][line1]', 'Line 1'
+                'customer_address_create_form[line1]', 'Line 1'
             )
             ->fillField(
-                'address_create_and_choose_form[address][line2]', 'Line 2'
+                'customer_address_create_form[line2]', 'Line 2'
             )
             ->fillField(
-                'address_create_and_choose_form[address][line3]', 'Line 3'
+                'customer_address_create_form[line3]', 'Line 3'
             )
             ->fillField(
-                'address_create_and_choose_form[address][postalCode]', $this->postalCode->getId()
+                'customer_address_create_form[postalCode]', $this->postalCode->getId()
             )
-            ->fillField(
-                'address_create_and_choose_form[address][addressType]', 'shipping'
-            )
-            ->checkField(
-                'address_create_and_choose_form[address][isDefault]'
-            )
-            ->checkField('address_create_and_choose_form[isChosen]')
+            ->checkField('The address is for shipping')
+            // ->checkField('The address is for billing')
+            ->checkField('Use as default shipping')
             ->click('Save')
             ->assertRedirectedTo('/checkout/addresses', 1)
             ->use(function (KernelBrowser $browser) {
                 $this->createSession($browser);
-
                 // check if address set it session
                 self::assertNotNull(
                     $this->session->get(CheckOutAddressSession::SHIPPING_ADDRESS_ID)
                 );
 
-                $a = CustomerAddressFactory::findBy(['customer' => $this->customer->object()]);
 
                 $address = $this->findOneBy(
                     CustomerAddress::class,
                     ['customer' => $this->customer->object()]
                 );
 
-                $orderAddress = $this->findOneBy(
-                    OrderAddress::class, ['shippingAddress' => $address]
-                );
+
+                $orderAddress = OrderAddressFactory::find(['shippingAddress' => $address]);
 
                 self::assertNotNull($orderAddress);
+                self::assertNotEmpty($orderAddress->getShippingAddressInJson());
+                self::assertJson(@json_encode($orderAddress->getShippingAddressInJson()));
+
                 // check if it is shipping session
                 self::assertEquals(
                     $this->session->get(CheckOutAddressSession::SHIPPING_ADDRESS_ID),
                     $orderAddress->getShippingAddress()->getId()
                 );
+
             });
     }
 
@@ -182,24 +181,20 @@ class AddressControllerTest extends WebTestCase
                 $this->addOption($browser, 'select', $this->postalCode->getId());
             })
             ->fillField(
-                'address_create_and_choose_form[address][line1]', 'Line 1'
+                'customer_address_create_form[line1]', 'Line 1'
             )
             ->fillField(
-                'address_create_and_choose_form[address][line2]', 'Line 2'
+                'customer_address_create_form[line2]', 'Line 2'
             )
             ->fillField(
-                'address_create_and_choose_form[address][line3]', 'Line 3'
+                'customer_address_create_form[line3]', 'Line 3'
             )
             ->fillField(
-                'address_create_and_choose_form[address][postalCode]', $this->postalCode->getId()
+                'customer_address_create_form[postalCode]', $this->postalCode->getId()
             )
-            ->fillField(
-                'address_create_and_choose_form[address][addressType]', 'billing'
-            )
-            ->checkField(
-                'address_create_and_choose_form[address][isDefault]'
-            )
-            ->checkField('address_create_and_choose_form[isChosen]')
+            ->checkField('The address is for billing')
+            // ->checkField('The address is for billing')
+            ->checkField('Use as default billing')
             ->click('Save')
             ->assertRedirectedTo('/checkout/addresses', 1)
             ->use(function (KernelBrowser $browser) {
@@ -213,12 +208,78 @@ class AddressControllerTest extends WebTestCase
                     ['customer' => $this->customer->object()]
                 );
 
-                $orderAddress = $this->findOneBy(
-                    OrderAddress::class, ['billingAddress' => $address]
-                );
+                $orderAddress = OrderAddressFactory::find(['billingAddress' => $address]);
 
                 self::assertNotNull($orderAddress);
+                self::assertNotEmpty($orderAddress->getBillingAddressInJson());
+                self::assertJson(@json_encode($orderAddress->getBillingAddressInJson()));
+                // check if it is billing session
+                self::assertEquals(
+                    $this->session->get(CheckOutAddressSession::BILLING_ADDRESS_ID),
+                    $orderAddress->getBillingAddress()->getId()
+                );
+            });
+        //todo: check redirect
+    }
 
+    public function testCreateAddressBothBillingAndShipping()
+    {
+
+        $uri = "/checkout/address/create?type=shipping&"
+            . RoutingConstants::REDIRECT_UPON_SUCCESS_URL . '=/checkout/addresses';
+
+        $this->browser()
+            ->use(callback: function (Browser $browser) {
+                $browser->client()->loginUser($this->userForCustomer->object());
+                $this->createOpenOrderFixtures($this->customer);
+
+            })
+            ->interceptRedirects()
+            ->visit($uri)
+            ->use(function (Browser $browser) {
+                $this->addOption($browser, 'select', $this->postalCode->getId());
+            })
+            ->fillField(
+                'customer_address_create_form[line1]', 'Line 1'
+            )
+            ->fillField(
+                'customer_address_create_form[line2]', 'Line 2'
+            )
+            ->fillField(
+                'customer_address_create_form[line3]', 'Line 3'
+            )
+            ->fillField(
+                'customer_address_create_form[postalCode]', $this->postalCode->getId()
+            )
+            ->checkField('The address is for shipping')
+            // ->checkField('The address is for shipping')
+            ->checkField('Use as default shipping')
+            ->checkField('The address is for billing')
+            // ->checkField('The address is for billing')
+            ->checkField('Use as default billing')
+            ->click('Save')
+            ->assertRedirectedTo('/checkout/addresses', 1)
+            ->use(function (KernelBrowser $browser) {
+                $this->createSession($browser);
+                self::assertNotNull(
+                    $this->session->get(CheckOutAddressSession::BILLING_ADDRESS_ID)
+                );
+
+                $addressShipping = $this->findOneBy(
+                    CustomerAddress::class,
+                    ['customer' => $this->customer->object(),'addressType'=>'shipping']
+                );
+
+                $orderAddress = OrderAddressFactory::find(['shippingAddress' => $addressShipping]);
+
+                self::assertNotNull($orderAddress);
+                self::assertNotEmpty($orderAddress->getBillingAddressInJson());
+                self::assertJson(json_encode($orderAddress->getBillingAddressInJson()));
+                // check if it is billing session
+                self::assertEquals(
+                    $this->session->get(CheckOutAddressSession::BILLING_ADDRESS_ID),
+                    $orderAddress->getBillingAddress()->getId()
+                );
             });
         //todo: check redirect
     }
@@ -256,8 +317,14 @@ class AddressControllerTest extends WebTestCase
             })
             ->interceptRedirects()
             ->visit($uriShipping)
-            ->checkField(
-                "address_choose_existing_multiple_form[addresses][0][isChosen]"
+            ->use(callback: function (Browser $browser) use ($address1Shipping) {
+                $re = $browser->client()->getResponse();
+                $form = $browser->crawler()->selectButton('Choose')->form();
+                $form['address_choose_existing_multiple_form[addresses]']->select($address1Shipping->getId());
+
+            })
+            ->fillField(
+                'address_choose_existing_multiple_form[addresses]', $address1Shipping->getId()
             )
             ->click('Choose')
             ->assertRedirectedTo('/checkout/addresses', 1)
@@ -284,8 +351,8 @@ class AddressControllerTest extends WebTestCase
             // then choose billing
             ->interceptRedirects()
             ->visit($uriBilling)
-            ->checkField(
-                "address_choose_existing_multiple_form[addresses][0][isChosen]"
+            ->fillField(
+                'address_choose_existing_multiple_form[addresses]', $address1Billing->getId()
             )
             ->click('Choose')
             ->assertRedirectedTo('/checkout/addresses', 1)
@@ -319,8 +386,8 @@ class AddressControllerTest extends WebTestCase
             })
             ->interceptRedirects()
             ->visit($uriShipping)
-            ->checkField(
-                "address_choose_existing_multiple_form[addresses][1][isChosen]"
+            ->fillField(
+                'address_choose_existing_multiple_form[addresses]', $address2Shipping->getId()
             )
             ->click('Choose')
             ->assertRedirectedTo('/checkout/addresses', 1)
@@ -347,8 +414,8 @@ class AddressControllerTest extends WebTestCase
             // then choose different billing
             ->interceptRedirects()
             ->visit($uriBilling)
-            ->checkField(
-                "address_choose_existing_multiple_form[addresses][1][isChosen]"
+            ->fillField(
+                'address_choose_existing_multiple_form[addresses]', $address2Billing->getId()
             )
             ->click('Choose')
             ->assertRedirectedTo('/checkout/addresses', 1)
