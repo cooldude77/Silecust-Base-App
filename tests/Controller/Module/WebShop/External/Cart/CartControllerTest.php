@@ -7,7 +7,7 @@ use Silecust\WebShop\Entity\OrderHeader;
 use Silecust\WebShop\Entity\OrderItem;
 use Silecust\WebShop\Factory\OrderHeaderFactory;
 use Silecust\WebShop\Factory\OrderItemFactory;
-use Silecust\WebShop\Service\Module\WebShop\External\Cart\Session\CartSessionProductService;
+use Silecust\WebShop\Service\Module\WebShop\External\Cart\Product\Manager\CartProductManager;
 use Silecust\WebShop\Service\Testing\Fixtures\CartFixture;
 use Silecust\WebShop\Service\Testing\Fixtures\CurrencyFixture;
 use Silecust\WebShop\Service\Testing\Fixtures\CustomerFixture;
@@ -33,13 +33,6 @@ class CartControllerTest extends WebTestCase
         FindByCriteria,
         CartFixture,
         SessionFactoryFixture, Factories;
-
-    protected function setUp(): void
-    {
-        $this->browser()->visit('/logout');
-
-
-    }
 
     public function testInCartProcesses()
     {
@@ -76,7 +69,7 @@ class CartControllerTest extends WebTestCase
             ->use(function (KernelBrowser $browser) {
                 $this->createSession($browser);
                 // Test : Cart got created
-                $this->assertNotNull($this->session->get(CartSessionProductService::CART_SESSION_KEY));
+                $this->assertNotNull($this->session->get(CartProductManager::CART_SESSION_KEY));
 
                 /** @var OrderHeader $order */
                 $order = $this->findOneBy(
@@ -108,12 +101,12 @@ class CartControllerTest extends WebTestCase
 
                 // Now: Order is created when cart is loaded
                 // Test : An order got created
-               // $order = $this->findOneBy(
-                 //   OrderHeader::class, ['customer' => $this->customer->object()]
+                // $order = $this->findOneBy(
+                //   OrderHeader::class, ['customer' => $this->customer->object()]
                 //);
-               // self::assertNotNull($order);
+                // self::assertNotNull($order);
 
-               // $this->assertNotNull($order->getGeneratedId());
+                // $this->assertNotNull($order->getGeneratedId());
                 $order = $this->findOneBy(OrderHeader::class, ['customer' => $this->customer->object()]);
                 // item got created
                 $item = $this->findOneBy(OrderItem::class, ['orderHeader' => $order,
@@ -158,7 +151,7 @@ class CartControllerTest extends WebTestCase
             ->use(function (\Zenstruck\Browser $browser) {
 
                 $session = $browser->client()->getRequest()->getSession();
-                $cart = $session->get(CartSessionProductService::CART_SESSION_KEY);
+                $cart = $session->get(CartProductManager::CART_SESSION_KEY);
 
                 // Test: Cart has right items and quantities
                 $this->assertEquals(4, $cart[$this->productA->getId()]->quantity);
@@ -187,10 +180,11 @@ class CartControllerTest extends WebTestCase
 
 
             // Test: item delete from cart
+            ->interceptRedirects()
             ->visit($cartDeleteUri)
             ->use(function (\Zenstruck\Browser $browser) {
                 $session = $browser->client()->getRequest()->getSession();
-                $cart = $session->get(CartSessionProductService::CART_SESSION_KEY);
+                $cart = $session->get(CartProductManager::CART_SESSION_KEY);
 
                 // Test: Product is removed from cart
                 $this->assertTrue(empty($cart[$this->productA->getId()]));
@@ -215,7 +209,7 @@ class CartControllerTest extends WebTestCase
                 $this->assertNotNull($itemB);
 
             })
-
+            ->assertRedirectedTo($cartUri)
             // Test: clear cart
             ->interceptRedirects()
             ->visit($cartUri)
@@ -224,7 +218,7 @@ class CartControllerTest extends WebTestCase
                 $session = $browser->client()->getRequest()->getSession();
 
                 // Test: Cart is cleared
-                $this->assertNull($session->get(CartSessionProductService::CART_SESSION_KEY));
+                $this->assertNull($session->get(CartProductManager::CART_SESSION_KEY));
 
                 $order = $this->findOneBy(
                     OrderHeader::class, ['customer' => $this->customer->object()]
@@ -300,7 +294,7 @@ class CartControllerTest extends WebTestCase
             ->use(function (\Zenstruck\Browser $browser) {
 
                 $session = $browser->client()->getRequest()->getSession();
-                $cart = $session->get(CartSessionProductService::CART_SESSION_KEY);
+                $cart = $session->get(CartProductManager::CART_SESSION_KEY);
 
                 // Test: Cart has right items and quantities
                 $this->assertEquals(1, $cart[$this->productA->getId()]->quantity);
@@ -384,6 +378,13 @@ class CartControllerTest extends WebTestCase
                 self::assertJson($orderItems[0]->getProductInJson());
 
             });;
+
+    }
+
+    protected function setUp(): void
+    {
+        $this->browser()->visit('/logout');
+
 
     }
 }
