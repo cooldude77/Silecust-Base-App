@@ -1,4 +1,8 @@
-<?php
+<?php /** @noinspection ALL */
+/** @noinspection ALL */
+/** @noinspection ALL */
+
+/** @noinspection ALL */
 
 namespace App\Tests\Controller\Admin\Customer\Address\Access;
 
@@ -15,17 +19,20 @@ use Zenstruck\Browser;
 use Zenstruck\Browser\Test\HasBrowser;
 use Zenstruck\Foundry\Test\Factories;
 
+/**
+ * Test my/address access rules
+ */
 class CustomerAddressControllerTest extends WebTestCase
 {
 
     use HasBrowser, EmployeeFixture, CustomerFixture, CustomerFixtureB, CustomerAddressFixture, CustomerAddressBFixture, SelectElement, LocationFixture, Factories;
 
 
-    public function testEditShippingAddress()
+    public function testEditShippingAddressByAnotherCustomerDenied()
     {
 
         $this->createCustomerAddressA($this->customerA);
-        $uri = "/admin/customer/address/{$this->addressShippingA->getId()}/edit";
+        $uri = "/my/address/{$this->addressShippingA->getId()}/edit";
 
         $this
             ->browser()
@@ -40,11 +47,11 @@ class CustomerAddressControllerTest extends WebTestCase
 
     }
 
-    public function testEditBillingAddress()
+    public function testEditBillingAddressByAnotherCustomerDenied()
     {
 
         $this->createCustomerAddressA($this->customerA);
-        $uri = "/admin/customer/address/{$this->addressShippingA->getId()}/edit";
+        $uri = "/my/address/{$this->addressShippingA->getId()}/edit";
 
         $this
             ->browser()
@@ -58,11 +65,11 @@ class CustomerAddressControllerTest extends WebTestCase
             ->expectException(AccessDeniedException::class);
 
     }
-  public function testDisplayShippingAddress()
+  public function testDisplayShippingAddressByAnotherCustomerDenied()
     {
 
         $this->createCustomerAddressA($this->customerA);
-        $uri = "/admin/customer/address/{$this->addressShippingA->getId()}/display";
+        $uri = "/my/address/{$this->addressShippingA->getId()}/display";
 
         $this
             ->browser()
@@ -77,11 +84,11 @@ class CustomerAddressControllerTest extends WebTestCase
 
     }
 
-    public function testDisplayBillingAddress()
+    public function testDisplayBillingAddressByAnotherCustomerDenied()
     {
 
         $this->createCustomerAddressA($this->customerA);
-        $uri = "/admin/customer/address/{$this->addressShippingA->getId()}/display";
+        $uri = "/my/address/{$this->addressShippingA->getId()}/display";
 
         $this
             ->browser()

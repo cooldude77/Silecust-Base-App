@@ -1,13 +1,10 @@
+import './my.js'
 import './bootstrap.js';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.min.css';
-import 'jquery';
 
-import $ from 'jquery';
-window.$ = window.jQuery = $;
 // A $( document ).ready() block.
-
 /*
  * Welcome to your app's main JavaScript file!
  *
@@ -15,5 +12,3 @@ window.$ = window.jQuery = $;
  * which should already be in your base.html.twig.
  */
 import './styles/app.css';
-
-
