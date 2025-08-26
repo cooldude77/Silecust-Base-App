@@ -1,3 +1,6 @@
+/*
+Todo: Shift this to admin
+ */
 h2 {
     display: inline-block;
 }
@@ -5,13 +8,42 @@ h2 {
 #silecust-admin-search-box .form-control {
     display: inline-block;
 }
-#silecust-admin-search-form{
+
+#silecust-admin-search-form {
     width: 50%;
 }
+
 a {
     text-decoration: none;
 }
 
 legend {
     display: none;
+}
+
+/*
+    Side Bar CSS
+*/
+
+#sidebar ul button {
+    cursor: pointer;
+}
+
+#sidebar ul .top-level::before {
+    content: "\25B6";
+    color: black;
+    display: inline-block;
+    margin-right: 6px;
+}
+
+#sidebar ul .arrow-down::before {
+    transform: rotate(90deg);
+}
+
+#sidebar ul .item {
+    display: none;
+}
+
+#sidebar ul  .item.displayed {
+    display: block; !important;
 }

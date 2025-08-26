@@ -7,20 +7,20 @@
     "php": ">=8.3",
     "ext-ctype": "*",
     "ext-iconv": "*",
-    "doctrine/dbal": "^3.10.0",
-    "doctrine/doctrine-bundle": "^2.15",
+    "doctrine/dbal": "^3.10.1",
+    "doctrine/doctrine-bundle": "^2.15.1",
     "doctrine/doctrine-migrations-bundle": "^3.4.2",
-    "doctrine/orm": "^3.5.0",
-    "phpdocumentor/reflection-docblock": "^5.6.2",
+    "doctrine/orm": "^3.5.2",
+    "phpdocumentor/reflection-docblock": "^5.6.3",
     "phpstan/phpdoc-parser": "^2.2",
-    "silecust/web-shop": "v0.0.0-alpha.8",
+    "silecust/web-shop": "dev-br_search_bug_fix",
     "symfony/asset": "7.2.*",
     "symfony/asset-mapper": "7.2.*",
     "symfony/console": "7.2.*",
     "symfony/doctrine-messenger": "7.2.*",
     "symfony/dotenv": "7.2.*",
     "symfony/expression-language": "7.2.*",
-    "symfony/flex": "^2.8.1",
+    "symfony/flex": "^2.8.2",
     "symfony/form": "7.2.*",
     "symfony/framework-bundle": "7.2.*",
     "symfony/http-client": "7.2.*",
@@ -35,7 +35,7 @@
     "symfony/runtime": "7.2.*",
     "symfony/security-bundle": "7.2.*",
     "symfony/serializer": "7.2.*",
-    "symfony/stimulus-bundle": "^2.27.0",
+    "symfony/stimulus-bundle": "^2.29.2",
     "symfony/string": "7.2.*",
     "symfony/translation": "7.2.*",
     "symfony/twig-bundle": "7.2.*",
@@ -98,7 +98,7 @@
   },
   "require-dev": {
     "dama/doctrine-test-bundle": "^8.2.2",
-    "phpunit/phpunit": "^9.6.23",
+    "phpunit/phpunit": "^9.6.25",
     "symfony/browser-kit": "7.2.*",
     "symfony/css-selector": "7.2.*",
     "symfony/debug-bundle": "7.2.*",
@@ -110,5 +110,14 @@
     "zenstruck/console-test": "^1.7",
     "zenstruck/foundry": "^1.38.6",
     "zenstruck/mailer-test": "^1.4.2"
-  }
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "/var/www/html/project/productized/bundles/silecust",
+      "options": {
+        "symlink": true
+      }
+    }
+  ]
 }
