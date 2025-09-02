@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c71fab08c3ba9bdd878157c0e3654a01",
+    "content-hash": "3f67982d56a3122e42c9d5e972cb4814",
     "packages": [
         {
             "name": "composer/semver",
@@ -1768,16 +1768,16 @@
         },
         {
             "name": "phpstan/phpdoc-parser",
-            "version": "2.2.0",
+            "version": "2.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpdoc-parser.git",
-                "reference": "b9e61a61e39e02dd90944e9115241c7f7e76bfd8"
+                "reference": "1e0cd5370df5dd2e556a36b9c62f62e555870495"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/b9e61a61e39e02dd90944e9115241c7f7e76bfd8",
-                "reference": "b9e61a61e39e02dd90944e9115241c7f7e76bfd8",
+                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/1e0cd5370df5dd2e556a36b9c62f62e555870495",
+                "reference": "1e0cd5370df5dd2e556a36b9c62f62e555870495",
                 "shasum": ""
             },
             "require": {
@@ -1809,9 +1809,9 @@
             "description": "PHPDoc parser with support for nullable, intersection and generic types",
             "support": {
                 "issues": "https://github.com/phpstan/phpdoc-parser/issues",
-                "source": "https://github.com/phpstan/phpdoc-parser/tree/2.2.0"
+                "source": "https://github.com/phpstan/phpdoc-parser/tree/2.3.0"
             },
-            "time": "2025-07-13T07:04:09+00:00"
+            "time": "2025-08-30T15:50:23+00:00"
         },
         {
             "name": "psr/cache",
@@ -2160,11 +2160,17 @@
         },
         {
             "name": "silecust/web-shop",
-            "version": "dev-br_search_bug_fix",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cooldude77/SilECust-WebShop.git",
+                "reference": "29ba70686bef94c0571f804392f9f30f7e813270"
+            },
             "dist": {
-                "type": "path",
-                "url": "/var/www/html/project/productized/bundles/silecust",
-                "reference": "68b6e3a368f1ba61cf22eb517b8a7e48f52c310f"
+                "type": "zip",
+                "url": "https://api.github.com/repos/cooldude77/SilECust-WebShop/zipball/29ba70686bef94c0571f804392f9f30f7e813270",
+                "reference": "29ba70686bef94c0571f804392f9f30f7e813270",
+                "shasum": ""
             },
             "require": {
                 "doctrine/dbal": "^3",
@@ -2202,25 +2208,23 @@
                 "zenstruck/foundry": "^1.37",
                 "zenstruck/mailer-test": "^1.4"
             },
+            "default-branch": true,
             "type": "project",
             "autoload": {
                 "psr-4": {
                     "Silecust\\WebShop\\": "src/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Silecust\\WebShop\\Tests\\": "tests/"
-                }
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "proprietary"
             ],
             "description": "Web Shop that helps you to set up online quickly",
-            "transport-options": {
-                "symlink": true,
-                "relative": false
-            }
+            "support": {
+                "issues": "https://github.com/cooldude77/SilECust-WebShop/issues",
+                "source": "https://github.com/cooldude77/SilECust-WebShop/tree/br_search_bug_fix"
+            },
+            "time": "2025-08-26T05:40:03+00:00"
         },
         {
             "name": "symfony/asset",
@@ -6722,16 +6726,16 @@
         },
         {
             "name": "symfony/stimulus-bundle",
-            "version": "v2.29.2",
+            "version": "v2.30.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/stimulus-bundle.git",
-                "reference": "7788eaec422c0d606e042e947faff9ed793954c6"
+                "reference": "668b9efe9d0ab8b4e50091263171609e0459c0c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/stimulus-bundle/zipball/7788eaec422c0d606e042e947faff9ed793954c6",
-                "reference": "7788eaec422c0d606e042e947faff9ed793954c6",
+                "url": "https://api.github.com/repos/symfony/stimulus-bundle/zipball/668b9efe9d0ab8b4e50091263171609e0459c0c8",
+                "reference": "668b9efe9d0ab8b4e50091263171609e0459c0c8",
                 "shasum": ""
             },
             "require": {
@@ -6771,7 +6775,7 @@
                 "symfony-ux"
             ],
             "support": {
-                "source": "https://github.com/symfony/stimulus-bundle/tree/v2.29.2"
+                "source": "https://github.com/symfony/stimulus-bundle/tree/v2.30.0"
             },
             "funding": [
                 {
@@ -6791,7 +6795,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-08-18T09:13:24+00:00"
+            "time": "2025-08-27T15:25:48+00:00"
         },
         {
             "name": "symfony/stopwatch",
@@ -7402,16 +7406,16 @@
         },
         {
             "name": "symfony/ux-autocomplete",
-            "version": "v2.29.2",
+            "version": "v2.30.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/ux-autocomplete.git",
-                "reference": "9e2372ea6858cd21447ce4327094d7dd66a16712"
+                "reference": "b1ac65267d8301c936a19f61e3cbfeedcf4df2c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/ux-autocomplete/zipball/9e2372ea6858cd21447ce4327094d7dd66a16712",
-                "reference": "9e2372ea6858cd21447ce4327094d7dd66a16712",
+                "url": "https://api.github.com/repos/symfony/ux-autocomplete/zipball/b1ac65267d8301c936a19f61e3cbfeedcf4df2c1",
+                "reference": "b1ac65267d8301c936a19f61e3cbfeedcf4df2c1",
                 "shasum": ""
             },
             "require": {
@@ -7472,7 +7476,7 @@
                 "symfony-ux"
             ],
             "support": {
-                "source": "https://github.com/symfony/ux-autocomplete/tree/v2.29.2"
+                "source": "https://github.com/symfony/ux-autocomplete/tree/v2.30.0"
             },
             "funding": [
                 {
@@ -7492,7 +7496,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-08-18T20:25:45+00:00"
+            "time": "2025-08-27T15:25:48+00:00"
         },
         {
             "name": "symfony/validator",
@@ -7922,20 +7926,19 @@
         },
         {
             "name": "symfonycasts/reset-password-bundle",
-            "version": "v1.23.1",
+            "version": "v1.23.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/SymfonyCasts/reset-password-bundle.git",
-                "reference": "bde42fe5956e0cd523931da886ee41ab660c45b2"
+                "reference": "beff941f4d7f8ad7fbd32e482e13acbcefa0dde4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/SymfonyCasts/reset-password-bundle/zipball/bde42fe5956e0cd523931da886ee41ab660c45b2",
-                "reference": "bde42fe5956e0cd523931da886ee41ab660c45b2",
+                "url": "https://api.github.com/repos/SymfonyCasts/reset-password-bundle/zipball/beff941f4d7f8ad7fbd32e482e13acbcefa0dde4",
+                "reference": "beff941f4d7f8ad7fbd32e482e13acbcefa0dde4",
                 "shasum": ""
             },
             "require": {
-                "ext-json": "*",
                 "php": ">=8.1.10",
                 "symfony/config": "^5.4 | ^6.0 | ^7.0",
                 "symfony/dependency-injection": "^5.4 | ^6.0 | ^7.0",
@@ -7964,9 +7967,9 @@
             "description": "Symfony bundle that adds password reset functionality.",
             "support": {
                 "issues": "https://github.com/SymfonyCasts/reset-password-bundle/issues",
-                "source": "https://github.com/SymfonyCasts/reset-password-bundle/tree/v1.23.1"
+                "source": "https://github.com/SymfonyCasts/reset-password-bundle/tree/v1.23.2"
             },
-            "time": "2024-12-09T19:04:36+00:00"
+            "time": "2025-06-27T20:32:48+00:00"
         },
         {
             "name": "twig/extra-bundle",
