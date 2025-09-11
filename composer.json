@@ -7,13 +7,13 @@
     "php": ">=8.3",
     "ext-ctype": "*",
     "ext-iconv": "*",
-    "doctrine/dbal": "^3.10.1",
-    "doctrine/doctrine-bundle": "^2.15.1",
+    "doctrine/dbal": "^3.10.2",
+    "doctrine/doctrine-bundle": "^2.16.1",
     "doctrine/doctrine-migrations-bundle": "^3.4.2",
     "doctrine/orm": "^3.5.2",
     "phpdocumentor/reflection-docblock": "^5.6.3",
     "phpstan/phpdoc-parser": "^2.3",
-    "silecust/web-shop": "dev-master",
+    "silecust/web-shop": "dev-br_side_bar",
     "symfony/asset": "7.2.*",
     "symfony/asset-mapper": "7.2.*",
     "symfony/console": "7.2.*",
@@ -111,4 +111,5 @@
     "zenstruck/foundry": "^1.38.6",
     "zenstruck/mailer-test": "^1.4.2"
   }
+
 }

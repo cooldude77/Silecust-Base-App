@@ -22,7 +22,7 @@ legend {
 }
 
 /*
-    Side Bar CSS
+   Admin Side Bar CSS
 */
 
 #sidebar ul button {
@@ -44,6 +44,29 @@ legend {
     display: none;
 }
 
-#sidebar ul  .item.displayed {
-    display: block; !important;
+#sidebar ul .item.displayed {
+    display: block;
+!important;
+}
+
+/*
+   Admin Side Bar CSS
+*/
+
+#category-hierarchy ul button {
+    cursor: pointer;
+}
+
+#category-hierarchy ul li {
+    list-style-type: none;
+}
+#category-hierarchy .bi-dash {
+    display: none;
+}
+
+#category-hierarchy ul.active {
+    display: block;
+}
+#category-hierarchy ul  {
+    display: none;
 }
