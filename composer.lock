@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "498ac9525de8e6e813e3bd16d3f4b389",
+    "content-hash": "69e1230e62ffb3ba651782a77a43792b",
     "packages": [
         {
             "name": "composer/semver",
@@ -2161,7 +2161,7 @@
         },
         {
             "name": "silecust/web-shop",
-            "version": "dev-br_side_bar",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cooldude77/SilECust-WebShop.git",
@@ -2209,6 +2209,7 @@
                 "zenstruck/foundry": "^1.37",
                 "zenstruck/mailer-test": "^1.4"
             },
+            "default-branch": true,
             "type": "project",
             "autoload": {
                 "psr-4": {
@@ -2222,7 +2223,7 @@
             "description": "Web Shop that helps you to set up online quickly",
             "support": {
                 "issues": "https://github.com/cooldude77/SilECust-WebShop/issues",
-                "source": "https://github.com/cooldude77/SilECust-WebShop/tree/br_side_bar"
+                "source": "https://github.com/cooldude77/SilECust-WebShop/tree/alpha-bug-fix"
             },
             "time": "2025-09-11T04:37:01+00:00"
         },

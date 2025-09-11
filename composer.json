@@ -13,7 +13,7 @@
     "doctrine/orm": "^3.5.2",
     "phpdocumentor/reflection-docblock": "^5.6.3",
     "phpstan/phpdoc-parser": "^2.3",
-    "silecust/web-shop": "dev-br_side_bar",
+    "silecust/web-shop": "dev-master",
     "symfony/asset": "7.2.*",
     "symfony/asset-mapper": "7.2.*",
     "symfony/console": "7.2.*",
