@@ -1,8 +1,12 @@
 /*
 Todo: Shift this to admin
  */
-h2 {
-    display: inline-block;
+#content{
+    min-height: 100%;
+}
+h2#admin-content-heading a {
+    float: right;
+!important;
 }
 
 #silecust-admin-search-box .form-control {
@@ -60,6 +64,7 @@ legend {
 #category-hierarchy ul li {
     list-style-type: none;
 }
+
 #category-hierarchy .bi-dash {
     display: none;
 }
@@ -67,6 +72,7 @@ legend {
 #category-hierarchy ul.active {
     display: block;
 }
-#category-hierarchy ul  {
+
+#category-hierarchy ul {
     display: none;
 }
