@@ -19,4 +19,5 @@
 .idea
 #Use paramteres.yaml.dist and copy to this file name
 /config/parameters.yaml
+/data
 

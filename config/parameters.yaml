@@ -4,4 +4,5 @@ parameters:
   silecust.sign_up.email.headline: A Headline
   silecust.default_country: IN
   file_storage_path: '/data/dev'
+  uploads_segment: '/uploads'
   silecust.main_page.title: Buy from comfort of your home
