@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection PhpPossiblePolymorphicInvocationInspection */
 
 namespace App\Tests\Controller\MasterData\Product\Product;
 
@@ -17,18 +17,6 @@ class ProductControllerTest extends WebTestCase
 {
 
     use HasBrowser, ProductFixture, EmployeeFixture, Factories, SelectElement;
-
-    protected function setUp(): void
-    {
-        $this->browser()->visit('/logout');
-        $this->createEmployeeFixtures();
-    }
-
-    protected function tearDown(): void
-    {
-        $this->browser()->visit('/logout');
-
-    }
 
     /**
      * Requires this test extends Symfony\Bundle\FrameworkBundle\Test\KernelTestCase
@@ -69,7 +57,7 @@ class ProductControllerTest extends WebTestCase
 
         $this->assertEquals("Prod1", $created->getName());
         $this->assertEquals("Product 1", $created->getDescription());
-        $this->assertTrue($created->isIsActive());
+        $this->assertTrue($created->isActive());
 
 
     }
@@ -102,7 +90,7 @@ class ProductControllerTest extends WebTestCase
             ->fillField('product_edit_form[name]', 'Prod11')
             ->fillField('product_edit_form[description]', 'Product 11')
             ->fillField('product_edit_form[category]', $this->category2->getId())
-            ->uncheckField('product_edit_form[isActive]')
+            ->uncheckField('product_edit_form[active]')
             ->click('Save')
             ->assertSuccessful();
 
@@ -111,7 +99,7 @@ class ProductControllerTest extends WebTestCase
         $this->assertEquals("Prod11", $edited->getName());
         $this->assertEquals("Product 11", $edited->getDescription());
         $this->assertEquals($this->category2->getId(), $edited->getCategory()->getId());
-        $this->assertFalse($edited->isIsActive());
+        $this->assertFalse($edited->isActive());
 
     }
 
@@ -125,20 +113,62 @@ class ProductControllerTest extends WebTestCase
             'description' => 'Category 1']);
 
 
-        $product = ProductFactory::createOne(['category' => $category]);
+        $product = ProductFactory::createOne(['category' => $category, 'active' => true]);
 
         $id = $product->getId();
         $uri = "/admin/product/$id/display";
 
-        $this->browser()->visit($uri)->assertNotAuthenticated()
+        $this
+            ->browser()
+            ->visit($uri)
+            ->assertNotAuthenticated()
             ->use(callback: function (Browser $browser) {
                 $browser->client()->loginUser($this->userForEmployee->object());
-            })->visit($uri)
+            })
+            ->visit($uri)
+            ->assertSee('Name :')
+            ->assertSee('Description :')
+            ->assertSee('Active :')
+            ->assertSee($product->getName())
+            ->assertSee($product->getDescription())
+            ->assertSeeElement(".field-type-boolean-true")
             ->assertSuccessful();
 
 
     }
 
+    /**
+     * Requires this test extends Symfony\Bundle\FrameworkBundle\Test\KernelTestCase
+     * or Symfony\Bundle\FrameworkBundle\Test\WebTestCase.
+     */
+    public function testDisplayWhenProductIsInactive()
+    {
+        $category = CategoryFactory::createOne(['name' => 'Cat1',
+            'description' => 'Category 1']);
+
+
+        $product = ProductFactory::createOne(['category' => $category, 'active' => false]);
+
+        $id = $product->getId();
+        $uri = "/admin/product/$id/display";
+
+        $this
+            ->browser()
+            ->visit($uri)
+            ->use(callback: function (Browser $browser) {
+                $browser->client()->loginUser($this->userForEmployee->object());
+            })
+            ->visit($uri)
+            ->assertSee('Active :')
+            ->use(callback: function (Browser $browser) {
+                $response = $browser->client()->getResponse();
+
+            })
+            ->assertSeeElement(".field-type-boolean-false")
+            ->assertSuccessful();
+
+
+    }
 
     public function testList()
     {
@@ -168,6 +198,18 @@ class ProductControllerTest extends WebTestCase
             ->assertSee($this->product1->getName())
             ->assertNotSee($this->product2->getName())
             ->assertSuccessful();
+
+    }
+
+    protected function setUp(): void
+    {
+        $this->browser()->visit('/logout');
+        $this->createEmployeeFixtures();
+    }
+
+    protected function tearDown(): void
+    {
+        $this->browser()->visit('/logout');
 
     }
 
