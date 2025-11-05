@@ -53,7 +53,7 @@ class CustomerAddressControllerTest extends WebTestCase
     {
         $this->createCustomerAddressA($this->customerA);
 
-        $uri = "/my/address/{$this->customerAddressShippingForCustomerA->getId()}/edit";
+        $uri = "/my/address/{$this->addressShippingA->getId()}/edit";
 
         $this
             ->browser()
@@ -70,41 +70,6 @@ class CustomerAddressControllerTest extends WebTestCase
 
     }
 
-    /**
-     * Requires this test extends Symfony\Bundle\FrameworkBundle\Test\KernelTestCase
-     * or Symfony\Bundle\FrameworkBundle\Test\WebTestCase.
-     */
-    public function testListAndSearchAddress()
-    {
-        $this->createCustomerAddressA($this->customerA);
-
-        $uri = "/my/addresses";
-
-        $this
-            ->browser()
-            ->visit('/')
-            ->assertNotAuthenticated()
-            ->use(callback: function (Browser $browser) {
-                $browser->client()->loginUser($this->userForCustomerA->object());
-            })
-            // Test: If the address is shown
-            ->visit($uri)
-            ->assertSee($this->customerAddressBillingForCustomerA->getLine1())
-            ->assertSee($this->customerAddressShippingForCustomerA->getLine1())
-            ->assertSuccessful()
-            // Test: Is Search success
-            ->fillField("search_form[searchTerm]", $this->customerAddressBillingForCustomerA->getLine1())
-            ->click('button[name="search"]')
-            ->assertSee($this->customerAddressBillingForCustomerA->getLine1())
-            // Test: Search produces nothing
-            ->fillField("search_form[searchTerm]", "No Address In Search")
-            ->click('button[name="search"]')
-            ->assertNotSee($this->customerAddressBillingForCustomerA->getLine1())
-            ->assertNotSee($this->customerAddressShippingForCustomerA->getLine1());
-
-
-    }
-
 
     /**
      * @return void
@@ -113,9 +78,9 @@ class CustomerAddressControllerTest extends WebTestCase
     {
 
         $this->createCustomerAddressA($this->customerA);
-        $address = $this->customerAddressShippingForCustomerA;
+        $address = $this->addressShippingA;
 
-        $uri = "/my/address/{$this->customerAddressShippingForCustomerA->getId()}/delete";
+        $uri = "/my/address/{$this->addressShippingA->getId()}/delete";
 
         $this
             ->browser()

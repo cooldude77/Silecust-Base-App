@@ -32,7 +32,7 @@ class CustomerAddressControllerTest extends WebTestCase
     {
 
         $this->createCustomerAddressA($this->customerA);
-        $uri = "/my/address/{$this->customerAddressShippingForCustomerA->getId()}/edit";
+        $uri = "/my/address/{$this->addressShippingA->getId()}/edit";
 
         $this
             ->browser()
@@ -51,7 +51,7 @@ class CustomerAddressControllerTest extends WebTestCase
     {
 
         $this->createCustomerAddressA($this->customerA);
-        $uri = "/my/address/{$this->customerAddressShippingForCustomerA->getId()}/edit";
+        $uri = "/my/address/{$this->addressShippingA->getId()}/edit";
 
         $this
             ->browser()
@@ -69,7 +69,7 @@ class CustomerAddressControllerTest extends WebTestCase
     {
 
         $this->createCustomerAddressA($this->customerA);
-        $uri = "/my/address/{$this->customerAddressShippingForCustomerA->getId()}/display";
+        $uri = "/my/address/{$this->addressShippingA->getId()}/display";
 
         $this
             ->browser()
@@ -88,7 +88,7 @@ class CustomerAddressControllerTest extends WebTestCase
     {
 
         $this->createCustomerAddressA($this->customerA);
-        $uri = "/my/address/{$this->customerAddressShippingForCustomerA->getId()}/display";
+        $uri = "/my/address/{$this->addressShippingA->getId()}/display";
 
         $this
             ->browser()
