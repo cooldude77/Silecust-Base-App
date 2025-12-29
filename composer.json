@@ -7,27 +7,28 @@
     "php": ">=8.3",
     "ext-ctype": "*",
     "ext-iconv": "*",
-    "doctrine/dbal": "^3.10.3",
+    "doctrine/dbal": "^3.10.4",
     "doctrine/doctrine-bundle": "^2.19.0",
-    "doctrine/doctrine-migrations-bundle": "^3.5.0",
+    "doctrine/doctrine-migrations-bundle": "^3.7.0",
     "doctrine/orm": "^3.6.0",
-    "phpdocumentor/reflection-docblock": "^5.6.3",
+    "phpdocumentor/reflection-docblock": "^5.6.5",
     "phpstan/phpdoc-parser": "^2.3",
-    "silecust/web-shop": "dev-master",
+    "silecust/web-shop": "dev-br-change-order-process",
+    "simpod/doctrine-utcdatetime": "^0.3.0",
     "symfony/asset": "7.2.*",
     "symfony/asset-mapper": "7.2.*",
     "symfony/console": "7.2.*",
     "symfony/doctrine-messenger": "7.2.*",
     "symfony/dotenv": "7.2.*",
     "symfony/expression-language": "7.2.*",
-    "symfony/flex": "^2.9",
+    "symfony/flex": "^2.10",
     "symfony/form": "7.2.*",
     "symfony/framework-bundle": "7.2.*",
     "symfony/http-client": "7.2.*",
     "symfony/intl": "7.2.*",
     "symfony/mailer": "7.2.*",
     "symfony/mime": "7.2.*",
-    "symfony/monolog-bundle": "^3.10",
+    "symfony/monolog-bundle": "^3.11.1",
     "symfony/notifier": "7.2.*",
     "symfony/process": "7.2.*",
     "symfony/property-access": "7.2.*",
@@ -42,8 +43,8 @@
     "symfony/validator": "7.2.*",
     "symfony/web-link": "7.2.*",
     "symfony/yaml": "7.2.*",
-    "twig/extra-bundle": "^2.12|^3.22",
-    "twig/twig": "^2.12|^3.22"
+    "twig/extra-bundle": "^2.12|^3.22.2",
+    "twig/twig": "^2.12|^3.22.2"
   },
   "config": {
     "allow-plugins": {
@@ -98,18 +99,28 @@
   },
   "require-dev": {
     "dama/doctrine-test-bundle": "^8.2.2",
-    "phpunit/phpunit": "^9.6.29",
+    "phpunit/phpunit": "^9.6.31",
     "symfony/browser-kit": "7.2.*",
     "symfony/css-selector": "7.2.*",
     "symfony/debug-bundle": "7.2.*",
-    "symfony/maker-bundle": "^1.64",
+    "symfony/maker-bundle": "^1.65.1",
     "symfony/phpunit-bridge": "^7.2.8",
     "symfony/stopwatch": "7.2.*",
     "symfony/web-profiler-bundle": "7.2.*",
     "zenstruck/browser": "^1.9.1",
-    "zenstruck/console-test": "^1.7",
+    "zenstruck/console-test": "^1.8",
     "zenstruck/foundry": "^1.38.6",
     "zenstruck/mailer-test": "^1.4.2"
-  }
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "/var/www/html/project/productized/bundles/silecust",
+      "options": {
+        "symlink": true
+      }
+    }
+  ]
+
 
 }
