@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "67d25772aeaa65e9fe2fb302003b5b98",
+    "content-hash": "77c90a82d86bfae0ec830bfd481b3ae0",
     "packages": [
         {
             "name": "composer/semver",
@@ -85,16 +85,16 @@
         },
         {
             "name": "doctrine/collections",
-            "version": "2.4.0",
+            "version": "2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/collections.git",
-                "reference": "9acfeea2e8666536edff3d77c531261c63680160"
+                "reference": "6108e0cd57d7ef125fb84696346a68860403a25d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/collections/zipball/9acfeea2e8666536edff3d77c531261c63680160",
-                "reference": "9acfeea2e8666536edff3d77c531261c63680160",
+                "url": "https://api.github.com/repos/doctrine/collections/zipball/6108e0cd57d7ef125fb84696346a68860403a25d",
+                "reference": "6108e0cd57d7ef125fb84696346a68860403a25d",
                 "shasum": ""
             },
             "require": {
@@ -151,7 +151,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/collections/issues",
-                "source": "https://github.com/doctrine/collections/tree/2.4.0"
+                "source": "https://github.com/doctrine/collections/tree/2.5.0"
             },
             "funding": [
                 {
@@ -167,7 +167,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-10-25T09:18:13+00:00"
+            "time": "2026-01-07T17:26:56+00:00"
         },
         {
             "name": "doctrine/dbal",
@@ -970,16 +970,16 @@
         },
         {
             "name": "doctrine/orm",
-            "version": "3.6.0",
+            "version": "3.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/orm.git",
-                "reference": "d4e9276e79602b1eb4c4029c6c999b0d93478e2f"
+                "reference": "2148940290e4c44b9101095707e71fb590832fa5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/orm/zipball/d4e9276e79602b1eb4c4029c6c999b0d93478e2f",
-                "reference": "d4e9276e79602b1eb4c4029c6c999b0d93478e2f",
+                "url": "https://api.github.com/repos/doctrine/orm/zipball/2148940290e4c44b9101095707e71fb590832fa5",
+                "reference": "2148940290e4c44b9101095707e71fb590832fa5",
                 "shasum": ""
             },
             "require": {
@@ -1052,9 +1052,9 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/orm/issues",
-                "source": "https://github.com/doctrine/orm/tree/3.6.0"
+                "source": "https://github.com/doctrine/orm/tree/3.6.1"
             },
-            "time": "2025-12-19T20:36:14+00:00"
+            "time": "2026-01-09T05:28:15+00:00"
         },
         {
             "name": "doctrine/persistence",
@@ -2157,7 +2157,7 @@
         },
         {
             "name": "silecust/web-shop",
-            "version": "dev-master",
+            "version": "dev-br-order-status-date-in-admin",
             "dist": {
                 "type": "path",
                 "url": "/var/www/html/project/productized/bundles/silecust",
@@ -8186,16 +8186,16 @@
         },
         {
             "name": "webmozart/assert",
-            "version": "2.0.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/webmozarts/assert.git",
-                "reference": "1b34b004e35a164bc5bb6ebd33c844b2d8069a54"
+                "reference": "bdbabc199a7ba9965484e4725d66170e5711323b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/webmozarts/assert/zipball/1b34b004e35a164bc5bb6ebd33c844b2d8069a54",
-                "reference": "1b34b004e35a164bc5bb6ebd33c844b2d8069a54",
+                "url": "https://api.github.com/repos/webmozarts/assert/zipball/bdbabc199a7ba9965484e4725d66170e5711323b",
+                "reference": "bdbabc199a7ba9965484e4725d66170e5711323b",
                 "shasum": ""
             },
             "require": {
@@ -8242,9 +8242,9 @@
             ],
             "support": {
                 "issues": "https://github.com/webmozarts/assert/issues",
-                "source": "https://github.com/webmozarts/assert/tree/2.0.0"
+                "source": "https://github.com/webmozarts/assert/tree/2.1.1"
             },
-            "time": "2025-12-16T21:36:00+00:00"
+            "time": "2026-01-08T11:28:40+00:00"
         }
     ],
     "packages-dev": [
@@ -10766,25 +10766,25 @@
         },
         {
             "name": "zenstruck/browser",
-            "version": "v1.9.1",
+            "version": "v1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zenstruck/browser.git",
-                "reference": "a1518531749b157347de60eef2a0a6f5fbd97b97"
+                "reference": "e1d29a78114b17450f5bc1e3d0b0fd2d5451e482"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zenstruck/browser/zipball/a1518531749b157347de60eef2a0a6f5fbd97b97",
-                "reference": "a1518531749b157347de60eef2a0a6f5fbd97b97",
+                "url": "https://api.github.com/repos/zenstruck/browser/zipball/e1d29a78114b17450f5bc1e3d0b0fd2d5451e482",
+                "reference": "e1d29a78114b17450f5bc1e3d0b0fd2d5451e482",
                 "shasum": ""
             },
             "require": {
                 "behat/mink": "^1.8",
-                "php": ">=8.0",
-                "symfony/browser-kit": "^5.4|^6.0|^7.0",
-                "symfony/css-selector": "^5.4|^6.0|^7.0",
-                "symfony/dom-crawler": "^5.4|^6.0|^7.0",
-                "symfony/framework-bundle": "^5.4|^6.0|^7.0",
+                "php": ">=8.1",
+                "symfony/browser-kit": "^6.4|^7.0|^8.0",
+                "symfony/css-selector": "^6.4|^7.0|^8.0",
+                "symfony/dom-crawler": "^6.4|^7.0|^8.0",
+                "symfony/framework-bundle": "^6.4|^7.0|^8.0",
                 "zenstruck/assert": "^1.1",
                 "zenstruck/callback": "^1.4.2"
             },
@@ -10792,12 +10792,13 @@
                 "dbrekelmans/bdi": "^1.0",
                 "justinrainbow/json-schema": "^5.3",
                 "mtdowling/jmespath.php": "^2.6",
-                "phpstan/phpstan": "^1.4",
+                "phpstan/phpstan": "^2.0",
                 "phpunit/phpunit": "^9.6.21|^10.4",
-                "symfony/mime": "^5.4|^6.0|^7.0",
+                "symfony/console": "^6.4|^7.0|^8.0",
+                "symfony/mime": "^6.4|^7.0|^8.0",
                 "symfony/panther": "^1.1|^2.0.1",
-                "symfony/phpunit-bridge": "^6.0|^7.0",
-                "symfony/security-bundle": "^5.4|^6.0|^7.0"
+                "symfony/phpunit-bridge": "^6.4|^7.0|^8.0",
+                "symfony/security-bundle": "^6.4|^7.0|^8.0"
             },
             "suggest": {
                 "justinrainbow/json-schema": "Json schema validator. Needed to use Json::assertMatchesSchema().",
@@ -10828,15 +10829,19 @@
             ],
             "support": {
                 "issues": "https://github.com/zenstruck/browser/issues",
-                "source": "https://github.com/zenstruck/browser/tree/v1.9.1"
+                "source": "https://github.com/zenstruck/browser/tree/v1.10.0"
             },
             "funding": [
                 {
                     "url": "https://github.com/kbond",
                     "type": "github"
+                },
+                {
+                    "url": "https://github.com/nikophil",
+                    "type": "github"
                 }
             ],
-            "time": "2024-11-05T12:21:53+00:00"
+            "time": "2026-01-08T15:40:26+00:00"
         },
         {
             "name": "zenstruck/callback",
@@ -11056,32 +11061,33 @@
         },
         {
             "name": "zenstruck/mailer-test",
-            "version": "v1.4.2",
+            "version": "v1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zenstruck/mailer-test.git",
-                "reference": "b34178d43c12b2b54e646936fc3f9a966598c1e1"
+                "reference": "221fe3c1bc46ee9229f7e01b7e67dec91fe0f4f7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zenstruck/mailer-test/zipball/b34178d43c12b2b54e646936fc3f9a966598c1e1",
-                "reference": "b34178d43c12b2b54e646936fc3f9a966598c1e1",
+                "url": "https://api.github.com/repos/zenstruck/mailer-test/zipball/221fe3c1bc46ee9229f7e01b7e67dec91fe0f4f7",
+                "reference": "221fe3c1bc46ee9229f7e01b7e67dec91fe0f4f7",
                 "shasum": ""
             },
             "require": {
                 "php": ">=8.0",
-                "symfony/framework-bundle": "^5.4|^6.0|^7.0",
-                "symfony/mailer": "^5.4|^6.0|^7.0",
+                "symfony/framework-bundle": "^5.4|^6.0|^7.0|^8.0",
+                "symfony/mailer": "^5.4|^6.0|^7.0|^8.0",
                 "zenstruck/assert": "^1.0",
                 "zenstruck/callback": "^1.1"
             },
             "require-dev": {
-                "phpstan/phpstan": "^1.4",
-                "phpunit/phpunit": "^9.5.0",
-                "symfony/messenger": "^5.4|^6.0|^7.0",
-                "symfony/phpunit-bridge": "^6.0|^7.0",
-                "symfony/var-dumper": "^5.4|^6.0|^7.0",
-                "symfony/yaml": "^5.4|^6.0|^7.0",
+                "phpstan/phpstan": "^2.1.31",
+                "phpunit/phpunit": "^9.6.21",
+                "symfony/console": "^5.4|^6.0|^7.0|^8.0",
+                "symfony/messenger": "^5.4|^6.0|^7.0|^8.0",
+                "symfony/phpunit-bridge": "^6.0|^7.0|^8.0",
+                "symfony/var-dumper": "^5.4|^6.0|^7.0|^8.0",
+                "symfony/yaml": "^5.4|^6.0|^7.0|^8.0",
                 "zenstruck/browser": "^1.0"
             },
             "type": "library",
@@ -11110,15 +11116,19 @@
             ],
             "support": {
                 "issues": "https://github.com/zenstruck/mailer-test/issues",
-                "source": "https://github.com/zenstruck/mailer-test/tree/v1.4.2"
+                "source": "https://github.com/zenstruck/mailer-test/tree/v1.5.0"
             },
             "funding": [
                 {
                     "url": "https://github.com/kbond",
                     "type": "github"
+                },
+                {
+                    "url": "https://github.com/nikophil",
+                    "type": "github"
                 }
             ],
-            "time": "2024-08-15T01:29:19+00:00"
+            "time": "2026-01-08T15:54:21+00:00"
         }
     ],
     "aliases": [],
